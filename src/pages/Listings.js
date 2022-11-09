@@ -10,21 +10,15 @@ const Listings = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [questions, setQuestions] = useState([]);
 
-  let type = "";
-  if (location.pathname.includes("questions")) {
-    type = "questions";
-  } else {
-    type = "articles";
-  }
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState(["react", "html"]);
 
   useEffect(() => {
     const getQuestions = async () => {
       const data = await fetch(
-        `https://api.stackexchange.com/2.3/${type}?order=desc&sort=activity&tagged=${params.tagname}&site=stackoverflow&filter=!6VvPDzQ)wlg1u`
+        `https://api.stackexchange.com/2.3/${params.type}?order=desc&sort=activity&tagged=${params.tagname}&site=stackoverflow&filter=!6VvPDzQ)wlg1u`
       );
       const result = await data.json();
       console.log("questions: ", result);
@@ -34,7 +28,7 @@ const Listings = () => {
       });
       setLoading(false);
     };
-    // getQuestions();
+    getQuestions();
   }, [params.tagname]);
 
   return (
@@ -44,6 +38,7 @@ const Listings = () => {
         <span>Loading... </span>
       ) : (
         <>
+          {console.log(questions)}
           {questions.length ? (
             <div className="px-5 mt-10 md:px-10 lg:px-30">
               <div className="flex flex-row">
@@ -64,7 +59,7 @@ const Listings = () => {
                   {tags.slice(0, questions.length).map((tag) => (
                     <Tags
                       name={tag}
-                      onClick={() => navigate(`/${type}/${tag}`)}
+                      onClick={() => navigate(`/list/${params.type}/${tag}`)}
                     />
                   ))}
                 </div>
@@ -73,8 +68,12 @@ const Listings = () => {
                     <ListingCard
                       name={question.title.slice(0, 105)}
                       key={question.question_id}
+                      anscount={question.answer_count}
+                      showBtn={true}
                       onClick={() =>
-                        navigate(`/answers/${question.question_id}`)
+                        navigate(
+                          `/answers/${params.type}/${question.question_id}`
+                        )
                       }
                     />
                   ))}

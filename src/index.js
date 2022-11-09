@@ -6,15 +6,17 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Answers from "./pages/Answers";
 import Listings from "./pages/Listings";
+import MyStack from "./pages/MyStack";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/questions/:tagname" element={<Listings />} />
-      <Route path="/articles/:tagname" element={<Listings />} />
-      <Route path="/answers/:id" element={<Answers />} />
+      <Route path="/list/:type/:tagname" element={<Listings />} />
+      {/* <Route path="/list/:articles/:tagname" element={<Listings />} /> */}
+      <Route path="/answers/:type/:id" element={<Answers />} />
+      <Route path="/mystack" element={<MyStack />} />
     </Routes>
   </BrowserRouter>
 );

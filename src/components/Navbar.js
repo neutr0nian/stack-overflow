@@ -1,6 +1,6 @@
 import React from "react";
 import { BsFillMoonStarsFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -30,9 +30,9 @@ const Navbar = () => {
           <li>
             <a
               className="bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md ml-8"
-              href="#"
+              href="/mystack"
             >
-              Login
+              My Stack
             </a>
           </li>
         </ul>

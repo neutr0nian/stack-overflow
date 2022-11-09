@@ -3,9 +3,9 @@ import React from "react";
 const TagCard = ({ name, type, onClick }) => {
   let path = "";
   if (type === "question") {
-    path = `/questions/${name}`;
+    path = `/list/questions/${name}`;
   } else {
-    path = `/articles/${name}`;
+    path = `/list/articles/${name}`;
   }
   return (
     <div

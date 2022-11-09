@@ -3,11 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import TagCard from "../components/TagCard";
 
-import {
-  AiFillTwitterCircle,
-  AiFillLinkedin,
-  AiFillYoutube,
-} from "react-icons/ai";
+import { AiFillLinkedin, AiFillGithub, AiFillInstagram } from "react-icons/ai";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -28,26 +24,6 @@ const Home = () => {
     getTags();
   }, []);
 
-  //   let t = [];
-  //   if (!tags.length) {
-  //     t = [
-  //       {
-  //         name: "react",
-  //       },
-  //       {
-  //         name: "javascript",
-  //       },
-  //       {
-  //         name: "python",
-  //       },
-  //       {
-  //         name: "java",
-  //       },
-  //       {
-  //         name: "c++",
-  //       },
-  //     ];
-  //   }
   return (
     <>
       <Navbar />
@@ -56,17 +32,19 @@ const Home = () => {
           <h2 className="text-5xl  text-teal-600 font-medium md:text-6xl">
             Hello Developers
           </h2>
-          {/* <h3 className="text-2xl pt-4 md:text-3xl">Pratik Chavan</h3> */}
           <p className="text-md pt-5 leading-8 text-gray-800 md:text-xl max-w-xl mx-auto">
-            I have created this concept for people like to use to search on
-            stack overflow in an efficient and organized way.
+            I have created this concept to search on stack overflow in an
+            efficient and organized way.
+          </p>
+          <p className="text-md leading-8 pt-4">
+            This project is in-development, so more features will be coming.
           </p>
         </div>
         <p className="text-center text-lg mt-10 mb-2">Connect with me</p>
         <div className="text-5xl pb-10 flex justify-center gap-16 text-gray-600 dark:text-gray-400">
-          <AiFillTwitterCircle className="cursor-pointer" />
+          <AiFillGithub className="cursor-pointer" />
           <AiFillLinkedin className="cursor-pointer" />
-          <AiFillYoutube className="cursor-pointer" />
+          <AiFillInstagram className="cursor-pointer" />
         </div>
       </div>
       {loading ? (
@@ -104,7 +82,7 @@ const Home = () => {
             </>
           ) : (
             <div className="text-center">
-              <h3 className="text-xl">API limit reached</h3>
+              <h3 className="text-2xl font-medium">API limit reached</h3>
               <p className="text-lg">Please try again tomorrow</p>
             </div>
           )}
