@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Stack Overflow Plus - A new design concept for stack overflow buil with React and Tailwind
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Designed a new concept of stack overflow with a refreshing and more organized UI. Creating it using ReactJS for front-end and stack exchange APIs. Featuring it with dark mode and additional features like search and pin or save a question/article.
 
 ## Available Scripts
 
